@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog SYSTEM "products.dtd">
+<catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="products.xsd">
+
+  <product id="P101">
+    <name>Apple iPhone 15</name>
+    <category>Mobile</category>
+    <price currency="INR">79999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>Latest iPhone with A17 chip.</description>
+</product>
+
+
+  <product id="P102">
+    <name>Samsung 55" 4K TV</name>
+    <category>Television</category>
+    <price currency="INR">59999</price>
+    <stock>Out of Stock</stock>
+    <rating>4.3</rating>
+  </product>
+
+  <product id="P103">
+    <name>Apple iPhone 17</name>
+    <category>Mobile</category>
+    <price currency="INR">79999</price>
+    <stock>Available</stock>
+    <rating>4.7</rating>
+    <description>Standard iPhone 17 with A19 chip and improved battery life.</description>
+</product>
+
+
+<product id="P104">
+    <name>Apple iPhone 17 Pro</name>
+    <category>Mobile</category>
+    <price currency="INR">119999</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Premium iPhone 17 Pro with A19 Pro chip and titanium frame.</description>
+</product>
+
+
+<product id="P105">
+    <name>Apple iPhone 17 Pro Max</name>
+    <category>Mobile</category>
+    <price currency="INR">139999</price>
+    <stock>Available</stock>
+    <rating>4.9</rating>
+    <description>Flagship iPhone 17 Pro Max featuring enhanced cameras and largest display.</description>
+</product>
+
+
+<product id="P106">
+    <name>Apple iPhone 17 Air</name>
+    <category>Mobile</category>
+    <price currency="INR">89999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>Ultra-thin iPhone 17 Air with lightweight chassis and A19 chip.</description>
+</product>
+
+
+<product id="P107">
+    <name>Google Pixel 9</name>
+    <category>Mobile</category>
+    <price currency="INR">69999</price>
+    <stock>Available</stock>
+    <rating>4.7</rating>
+    <description>Google Pixel 9 with Tensor G4 chip and upgraded AI photography.</description>
+</product>
+
+<product id="P108">
+    <name>Google Pixel 9 Pro</name>
+    <category>Mobile</category>
+    <price currency="INR">89999</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Premium Pixel 9 Pro with advanced telephoto lens and enhanced AI.</description>
+</product>
+
+
+<product id="P109">
+    <name>Google Pixel 8</name>
+    <category>Mobile</category>
+    <price currency="INR">54999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>Google Pixel 8 with Tensor G3 and stunning camera performance.</description>
+</product>
+
+
+<product id="P110">
+    <name>Google Pixel 8 Pro</name>
+    <category>Mobile</category>
+    <price currency="INR">94999</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Pixel 8 Pro featuring advanced AI, Pro camera features and 6.8-inch display.</description>
+</product>
+
+<product id="P111">
+    <name>LG OLED evo C3 55-inch</name>
+    <category>Television</category>
+    <price currency="INR">159990</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>55-inch 4K OLED evo display with α9 AI Processor and Dolby Vision.</description>
+</product>
+
+
+<product id="P112">
+    <name>Sony Bravia XR 65-inch Mini LED</name>
+    <category>Television</category>
+    <price currency="INR">229990</price>
+    <stock>Available</stock>
+    <rating>4.9</rating>
+    <description>65-inch 4K Mini LED Smart TV with Cognitive Processor XR and XR Contrast Booster.</description>
+</product>
+
+
+<product id="P113">
+    <name>Samsung QN90C Neo QLED 65-inch</name>
+    <category>Television</category>
+    <price currency="INR">189999</price>
+    <stock>Available</stock>
+    <rating>4.7</rating>
+    <description>65-inch Neo QLED 4K TV with Quantum Matrix Technology and 120Hz panel.</description>
+</product>
+
+
+<product id="P114">
+    <name>Xiaomi Smart TV X 55-inch</name>
+    <category>Television</category>
+    <price currency="INR">34999</price>
+    <stock>Available</stock>
+    <rating>4.4</rating>
+    <description>55-inch 4K HDR Smart TV with Dolby Vision and PatchWall interface.</description>
+</product>
+
+
+<product id="P115">
+    <name>OnePlus TV Q2 Pro 65-inch</name>
+    <category>Television</category>
+    <price currency="INR">94999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>65-inch QLED Smart TV with 120Hz panel and Gamma Engine Ultra.</description>
+</product>
+
+<product id="P116">
+    <name>Dell XPS 13</name>
+    <category>Laptop</category>
+    <price currency="INR">124999</price>
+    <stock>Available</stock>
+    <rating>4.7</rating>
+    <description>13-inch ultraportable laptop with Intel Core i7, 16GB RAM and 512GB SSD.</description>
+</product>
+
+
+<product id="P117">
+    <name>Apple MacBook Air M2</name>
+    <category>Laptop</category>
+    <price currency="INR">114990</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Lightweight 13-inch MacBook Air powered by Apple M2 chip, 8GB RAM and 512GB SSD.</description>
+</product>
+
+<product id="P118">
+    <name>Apple MacBook Pro 14-inch M3</name>
+    <category>Laptop</category>
+    <price currency="INR">189990</price>
+    <stock>Available</stock>
+    <rating>4.9</rating>
+    <description>14-inch MacBook Pro with M3 chip, Liquid Retina XDR display and long battery life.</description>
+</product>
+
+
+<product id="P119">
+    <name>ASUS ROG Strix G16</name>
+    <category>Gaming Laptop</category>
+    <price currency="INR">149999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>16-inch gaming laptop with Intel Core i9, RTX graphics and high refresh rate display.</description>
+</product>
+
+
+<product id="P120">
+    <name>HP Pavilion 14</name>
+    <category>Laptop</category>
+    <price currency="INR">67999</price>
+    <stock>Available</stock>
+    <rating>4.4</rating>
+    <description>Everyday 14-inch laptop with Intel Core i5, 16GB RAM and 512GB SSD.</description>
+</product>
+
+
+<product id="P121">
+    <name>Lenovo IdeaPad Slim 5</name>
+    <category>Laptop</category>
+    <price currency="INR">59999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>Slim and light 15.6-inch laptop with AMD Ryzen processor and 16GB RAM.</description>
+</product>
+
+
+<product id="P122">
+    <name>Sony WH-1000XM5</name>
+    <category>Headphones</category>
+    <price currency="INR">29990</price>
+    <stock>Available</stock>
+    <rating>4.9</rating>
+    <description>Industry-leading wireless noise-cancelling headphones with premium sound quality.</description>
+</product>
+
+
+<product id="P123">
+    <name>Bose QuietComfort Ultra</name>
+    <category>Headphones</category>
+    <price currency="INR">35990</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Premium ANC headphones with spatial audio, comfort-focused design and long battery life.</description>
+</product>
+
+
+<product id="P124">
+    <name>Sennheiser Momentum 4 Wireless</name>
+    <category>Headphones</category>
+    <price currency="INR">26990</price>
+    <stock>Available</stock>
+    <rating>4.7</rating>
+    <description>High-fidelity wireless headphones with 60-hour battery life and audiophile-grade sound.</description>
+</product>
+
+
+<product id="P125">
+    <name>JBL Tour One M2</name>
+    <category>Headphones</category>
+    <price currency="INR">24999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>Adaptive noise-cancelling headphones with immersive JBL Pro Sound.</description>
+</product>
+
+
+<product id="P126">
+    <name>boAt Nirvana 751 ANC</name>
+    <category>Headphones</category>
+    <price currency="INR">3999</price>
+    <stock>Available</stock>
+    <rating>4.2</rating>
+    <description>Budget-friendly ANC headphones with 65-hour playback and dual modes.</description>
+</product>
+
+
+<product id="P127">
+    <name>Audio-Technica ATH-M50xBT2</name>
+    <category>Headphones</category>
+    <price currency="INR">21999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>Professional monitor headphone sound with wireless Bluetooth convenience.</description>
+</product>
+
+
+<product id="P128">
+    <name>Apple AirPods Pro (2nd Gen)</name>
+    <category>Earbuds</category>
+    <price currency="INR">24990</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Premium ANC earbuds with Adaptive Transparency and H2 chip for improved sound.</description>
+</product>
+
+
+<product id="P129">
+    <name>Samsung Galaxy Buds2 Pro</name>
+    <category>Earbuds</category>
+    <price currency="INR">17999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>Hi-Fi 24-bit audio earbuds with ANC and ergonomic design.</description>
+</product>
+
+
+<product id="P130">
+    <name>Sony WF-1000XM5</name>
+    <category>Earbuds</category>
+    <price currency="INR">26990</price>
+    <stock>Available</stock>
+    <rating>4.9</rating>
+    <description>Flagship TWS earbuds with superior noise cancellation and immersive sound.</description>
+</product>
+
+
+<product id="P131">
+    <name>Nothing Ear (2)</name>
+    <category>Earbuds</category>
+    <price currency="INR">9999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>Transparent-design earbuds with personalized sound and LHDC support.</description>
+</product>
+
+
+<product id="P132">
+    <name>OnePlus Buds Pro 2</name>
+    <category>Earbuds</category>
+    <price currency="INR">11999</price>
+    <stock>Available</stock>
+    <rating>4.4</rating>
+    <description>Premium dual-driver earphones with ANC and spatial audio tuning.</description>
+</product>
+
+
+<product id="P133">
+    <name>boAt Airdopes 141</name>
+    <category>Earbuds</category>
+    <price currency="INR">1299</price>
+    <stock>Available</stock>
+    <rating>4.2</rating>
+    <description>Affordable TWS earbuds with 42-hour playback and ENx noise cancellation.</description>
+</product>
+
+
+<product id="P134">
+    <name>Canon EOS R6 Mark II</name>
+    <category>Camera</category>
+    <price currency="INR">249999</price>
+    <stock>Available</stock>
+    <rating>4.8</rating>
+    <description>Full-frame mirrorless camera with 24.2MP sensor, advanced AF and 4K60 recording.</description>
+</product>
+
+
+<product id="P135">
+    <name>Sony Alpha A7 IV</name>
+    <category>Camera</category>
+    <price currency="INR">219990</price>
+    <stock>Available</stock>
+    <rating>4.9</rating>
+    <description>33MP full-frame mirrorless camera with real-time Eye AF and 4K60 video.</description>
+</product>
+
+
+<product id="P136">
+    <name>Nikon Z6 II</name>
+    <category>Camera</category>
+    <price currency="INR">179999</price>
+    <stock>Available</stock>
+    <rating>4.7</rating>
+    <description>24.5MP full-frame mirrorless camera with dual processors and improved AF tracking.</description>
+</product>
+
+
+<product id="P137">
+    <name>Fujifilm X-T5</name>
+    <category>Camera</category>
+    <price currency="INR">149999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>40MP APS-C mirrorless camera with film simulation modes and 6.2K video recording.</description>
+</product>
+
+
+<product id="P138">
+    <name>Canon EOS 200D Mark II</name>
+    <category>Camera</category>
+    <price currency="INR">57999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>Compact DSLR with 24.1MP sensor, Dual Pixel AF and vari-angle touchscreen.</description>
+</product>
+
+
+<product id="P139">
+    <name>Sony ZV-E10</name>
+    <category>Camera</category>
+    <price currency="INR">62990</price>
+    <stock>Available</stock>
+    <rating>4.4</rating>
+    <description>Interchangeable-lens vlogging camera with 24MP sensor, fast AF and product showcase mode.</description>
+</product>
+
+
+<product id="P140">
+    <name>HP DeskJet 2776 All-in-One</name>
+    <category>Printer</category>
+    <price currency="INR">5999</price>
+    <stock>Available</stock>
+    <rating>4.3</rating>
+    <description>All-in-one color printer with wireless printing, scanning and copying for home use.</description>
+</product>
+
+
+<product id="P141">
+    <name>Epson EcoTank L3250</name>
+    <category>Printer</category>
+    <price currency="INR">17999</price>
+    <stock>Available</stock>
+    <rating>4.6</rating>
+    <description>EcoTank ink tank printer with ultra-low printing cost and Wi-Fi Direct support.</description>
+</product>
+
+
+<product id="P142">
+    <name>Canon PIXMA G2021</name>
+    <category>Printer</category>
+    <price currency="INR">14999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>High-efficiency ink tank printer with clear prints, low cost per page, and flatbed scanner.</description>
+</product>
+
+
+<product id="P143">
+    <name>Brother DCP-L2520D</name>
+    <category>Printer</category>
+    <price currency="INR">16499</price>
+    <stock>Available</stock>
+    <rating>4.4</rating>
+    <description>Monochrome laser multi-function printer with auto-duplex printing.</description>
+</product>
+
+
+<product id="P144">
+    <name>HP LaserJet Pro M126nw</name>
+    <category>Printer</category>
+    <price currency="INR">20999</price>
+    <stock>Available</stock>
+    <rating>4.5</rating>
+    <description>Wireless laser printer offering fast printing, scanning and copying for office use.</description>
+</product>
+
+
+<product id="P145">
+    <name>Canon imageCLASS MF241d</name>
+    <category>Printer</category>
+    <price currency="INR">18499</price>
+    <stock>Available</stock>
+    <rating>4.4</rating>
+    <description>Monochrome laser MFP with auto-duplex printing and compact design.</description>
+</product>
+
+
+</catalog>

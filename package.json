@@ -1,0 +1,25 @@
+{
+  "name": "webtech-workshop",
+  "version": "1.0.0",
+  "description": "my first program ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darkrizer2705/xml-product-catalog-system.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Darkrizer2705/xml-product-catalog-system/issues"
+  },
+  "homepage": "https://github.com/Darkrizer2705/xml-product-catalog-system#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "xmldom": "^0.6.0",
+    "xpath": "^0.0.34"
+  }
+}

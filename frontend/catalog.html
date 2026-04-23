@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electronic catalog</title>
+    <link rel="stylesheet" href="/style.css">
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+    <span id="pageTitle"></span>
+    <span class="toggle-btn" onclick="toggleDarkMode()">🌙</span>
+</header>
+
+<div class="tabs">
+    <div class="tab active" onclick="showTab('catalog')">All Products</div>
+    <div class="tab" onclick="showTab('search')">Search</div>
+</div>
+
+<div class="container">
+
+    <!-- =====================
+         TAB 1 — CATALOG
+    ======================= -->
+    <div id="catalogTab">
+        <h2>All Products</h2>
+
+        <button onclick="loadCatalog()">Load Catalog</button>
+        <button onclick="showByCategory()">Group By Category</button>
+
+        <!-- Sort -->
+        <select id="sortOption" onchange="sortCatalog()">
+            <option value="">Sort By</option>
+            <option value="priceAsc">Price: Low → High</option>
+            <option value="priceDesc">Price: High → Low</option>
+            <option value="rating">Rating: High → Low</option>
+        </select>
+
+        <div id="catalogOutput"></div>
+    </div>
+
+    <!-- =====================
+         TAB 2 — SEARCH
+    ======================= -->
+    <div id="searchTab" style="display:none;">
+        <h2>Search Products</h2>
+
+        <select id="autoCategory">
+            <option value="">Category (Any)</option>
+        </select>
+
+        <input id="min" type="number" placeholder="Min Price">
+        <input id="max" type="number" placeholder="Max Price">
+
+        <select id="stock">
+            <option value="">Stock (Any)</option>
+            <option value="Available">Available</option>
+            <option value="Out of Stock">Out of Stock</option>
+        </select>
+
+        <select id="minRating">
+            <option value="">Min Rating</option>
+            <option value="1">1★</option>
+            <option value="2">2★</option>
+            <option value="3">3★</option>
+            <option value="4">4★</option>
+        </select>
+
+        <button onclick="searchProducts()">Search</button>
+
+        <div id="searchResults"></div>
+        <div id="paginationControls"></div>
+    </div>
+
+</div>
+
+
+<script>
+// ===========================================================
+// SET TITLE IN HEADER
+// ===========================================================
+document.getElementById("pageTitle").innerText = document.title;
+
+
+// ===========================================================
+// DARK MODE
+// ===========================================================
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+
+
+// ===========================================================
+// TABS + AUTO LOAD CATALOG WHEN SEARCH TAB OPENS
+// ===========================================================
+function showTab(tabName) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.container > div').forEach(d => d.style.display = 'none');
+
+    if (tabName === 'catalog') {
+        document.querySelectorAll('.tab')[0].classList.add('active');
+        document.getElementById('catalogTab').style.display = 'block';
+    } else {
+        document.querySelectorAll('.tab')[1].classList.add('active');
+        document.getElementById('searchTab').style.display = 'block';
+
+        // IMPORTANT: Load data when switching to search tab
+        if (!loadedXML) loadCatalog();
+    }
+}
+
+
+// GLOBAL XML STORAGE
+let loadedXML = null;
+
+
+// ===========================================================
+// LOAD CATALOG (XSLT)
+// ===========================================================
+function loadCatalog() {
+    const xmlUrl = "/data/products.xml";
+    const xslUrl = "/xslt/products.xsl";
+
+    fetch(xmlUrl)
+        .then(res => res.text())
+        .then(xmlText => {
+            loadedXML = new DOMParser().parseFromString(xmlText, "text/xml");
+
+            // Load categories AFTER XML is available
+            loadCategories();
+
+            // Load XSLT
+            fetch(xslUrl)
+                .then(res => res.text())
+                .then(xslText => {
+                    const xsl = new DOMParser().parseFromString(xslText, "text/xml");
+
+                    const processor = new XSLTProcessor();
+                    processor.importStylesheet(xsl);
+
+                    const result = processor.transformToFragment(loadedXML, document);
+
+                    document.getElementById("catalogOutput").innerHTML = "";
+                    document.getElementById("catalogOutput").appendChild(result);
+                });
+        });
+}
+
+
+// ===========================================================
+// AUTO CATEGORY DROPDOWN
+// ===========================================================
+function loadCategories() {
+    if (!loadedXML) return;
+
+    const categories = [...new Set(
+        [...loadedXML.getElementsByTagName("category")].map(n => n.textContent)
+    )];
+
+    const dropdown = document.getElementById("autoCategory");
+    dropdown.innerHTML = `<option value="">Category (Any)</option>`;
+
+    categories.forEach(c => {
+        dropdown.innerHTML += `<option value="${c}">${c}</option>`;
+    });
+}
+
+
+// ===========================================================
+// CARD HTML GENERATOR
+// ===========================================================
+function generateCardHTML(p) {
+    return `
+        <div class="card">
+            <h3>${p.name}</h3>
+            <span><strong>ID:</strong> ${p.id}</span>
+            <span><strong>Category:</strong> ${p.category}</span>
+            <span><strong>Price:</strong> ₹${p.price}</span>
+            <span><strong>Stock:</strong> ${p.stock}</span>
+            <span><strong>Rating:</strong> ⭐ ${p.rating}</span>
+            <p>${p.description || ""}</p>
+        </div>
+    `;
+}
+
+
+// ===========================================================
+// SORTING
+// ===========================================================
+function sortCatalog() {
+    const option = document.getElementById("sortOption").value;
+    if (!option || !loadedXML) return;
+
+    const products = [...loadedXML.getElementsByTagName("product")];
+
+    if (option === "priceAsc")
+        products.sort((a, b) => a.querySelector("price").textContent - b.querySelector("price").textContent);
+
+    if (option === "priceDesc")
+        products.sort((a, b) => b.querySelector("price").textContent - a.querySelector("price").textContent);
+
+    if (option === "rating")
+        products.sort((a, b) => b.querySelector("rating").textContent - a.querySelector("rating").textContent);
+
+    let html = '<div class="cards">';
+    products.forEach(p => {
+        html += generateCardHTML({
+            id: p.getAttribute("id"),
+            name: p.querySelector("name").textContent,
+            category: p.querySelector("category").textContent,
+            price: p.querySelector("price").textContent,
+            stock: p.querySelector("stock").textContent,
+            rating: p.querySelector("rating").textContent,
+            image: p.querySelector("image")?.textContent || "",
+            description: p.querySelector("description")?.textContent || ""
+        });
+    });
+    html += '</div>';
+
+    document.getElementById("catalogOutput").innerHTML = html;
+}
+
+
+// ===========================================================
+// GROUP BY CATEGORY
+// ===========================================================
+function showByCategory() {
+    if (!loadedXML) return;
+
+    let categories = {};
+
+    [...loadedXML.getElementsByTagName("product")].forEach(p => {
+        let cat = p.querySelector("category").textContent;
+        if (!categories[cat]) categories[cat] = [];
+        categories[cat].push(p);
+    });
+
+    let html = '';
+
+    Object.keys(categories).forEach(cat => {
+        html += `<h2>${cat}</h2><div class="cards">`;
+
+        categories[cat].forEach(p => {
+            html += generateCardHTML({
+                id: p.getAttribute("id"),
+                name: p.querySelector("name").textContent,
+                category: cat,
+                price: p.querySelector("price").textContent,
+                stock: p.querySelector("stock").textContent,
+                rating: p.querySelector("rating").textContent,
+                image: p.querySelector("image")?.textContent || "",
+                description: p.querySelector("description")?.textContent || ""
+            });
+        });
+
+        html += `</div>`;
+    });
+
+    document.getElementById("catalogOutput").innerHTML = html;
+}
+
+
+// ===========================================================
+// SEARCH (BACKEND)
+// ===========================================================
+let currentPage = 1;
+let itemsPerPage = 6;
+let currentResults = [];
+
+function searchProducts() {
+    const c = document.getElementById("autoCategory").value;
+    const min = document.getElementById("min").value;
+    const max = document.getElementById("max").value;
+    const stock = document.getElementById("stock").value;
+    const minRating = document.getElementById("minRating").value;
+
+    fetch(`/search?category=${c}&min=${min}&max=${max}&stock=${stock}&minRating=${minRating}`)
+        .then(res => res.json())
+        .then(data => {
+            currentResults = data;
+            displayPage(1);
+        });
+}
+
+
+// PAGINATION
+function displayPage(page) {
+    currentPage = page;
+    let start = (page - 1) * itemsPerPage;
+    let end = start + itemsPerPage;
+    let pageItems = currentResults.slice(start, end);
+
+    let html = '<div class="cards">';
+    pageItems.forEach(p => {
+        html += generateCardHTML(p);
+    });
+    html += '</div>';
+
+    document.getElementById("searchResults").innerHTML = html;
+
+    generatePaginationButtons();
+}
+
+function generatePaginationButtons() {
+    let totalPages = Math.ceil(currentResults.length / itemsPerPage);
+    let buttons = '';
+
+    if (currentPage > 1)
+        buttons += `<button onclick="displayPage(${currentPage - 1})">Previous</button>`;
+
+    if (currentPage < totalPages)
+        buttons += `<button onclick="displayPage(${currentPage + 1})">Next</button>`;
+
+    document.getElementById("paginationControls").innerHTML = buttons;
+}
+
+</script>
+
+</body>
+</html>

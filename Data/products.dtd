@@ -1,0 +1,13 @@
+<!ELEMENT catalog (product+)>
+<!ELEMENT product (name, category, price, stock, rating, description)>
+<!ATTLIST product id ID #REQUIRED>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT category (#PCDATA)>
+
+<!ELEMENT price (#PCDATA)>
+<!ATTLIST price currency CDATA #IMPLIED>
+
+<!ELEMENT stock (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
